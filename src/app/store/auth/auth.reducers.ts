@@ -7,7 +7,7 @@ import {
     appBootEvent, appBootEventSessionAvailable, appBootEventSessionUnavailable
 } from './auth.actions';
 import ILoggedInUser from "src/app/models/auth/ILoggedInUser";
-import { state } from '@angular/animations';
+
 const _authReducer = createReducer(initialLoggedInUserState,
 
     on(loginSessionValidityEvent, (state) => session(state)),
@@ -28,15 +28,15 @@ const _authReducer = createReducer(initialLoggedInUserState,
 );
 
 
-function session(state) {
+function session(state): ILoggedInUser {
     return { ...state }
 }
 
-function sessionSuccess(state) {
+function sessionSuccess(state): ILoggedInUser {
     return { ...state }
 }
 
-function sessionFailure(state) {
+function sessionFailure(state): ILoggedInUser {
     return { ...state }
 }
 
@@ -46,7 +46,14 @@ function appBoot(state): ILoggedInUser {
 
 function appBootEventSuccess(state, input): ILoggedInUser {
     if (input.authenticatedUser.email !== null || input.authenticatedUser.email || undefined) {
-        return { ...state, email: input.authenticatedUser.email, uuid: input.authenticatedUser.email, isLoggedIn: true }
+        return {
+            ...state,
+            email: input.authenticatedUser.email,
+            uuid: input.authenticatedUser.uuid,
+            displayName: input.authenticatedUser.displayName || input.authenticatedUser.email,
+            token: input.authenticatedUser.token,
+            isLoggedIn: true
+        }
     } else {
         return { ...state, isLoggedIn: true }
     }
@@ -61,7 +68,14 @@ function login(state): ILoggedInUser {
 }
 
 function loginSuccess(state, input): ILoggedInUser {
-    return { ...state, uuid: input.authenticatedUser.email, displayName: input.authenticatedUser.email, isLoggedIn: true }
+    return {
+        ...state,
+        email: input.authenticatedUser.email,
+        uuid: input.authenticatedUser.uuid,
+        displayName: input.authenticatedUser.displayName || input.authenticatedUser.email,
+        token: input.authenticatedUser.token,
+        isLoggedIn: true
+    }
 }
 
 function loginFailure(state, error): ILoggedInUser {
