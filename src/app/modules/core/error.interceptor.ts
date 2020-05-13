@@ -3,8 +3,8 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import ILoggedInUser from '../models/auth/ILoggedInUser';
-import { logoutEvent } from '../store/auth/auth.actions';
+import ILoggedInUser from '../../models/auth/ILoggedInUser';
+import { logoutEvent } from '../../store/auth/auth.actions';
 
 @Injectable()
 export class AppErrorInterceptor implements HttpInterceptor {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import ILoggedInUser from '../models/auth/ILoggedInUser';
+import ILoggedInUser from '../../models/auth/ILoggedInUser';
 import { HttpInterceptor, HttpRequest, HttpEvent, HttpHandler } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

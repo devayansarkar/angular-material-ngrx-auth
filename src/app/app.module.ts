@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationEffects } from './store/auth/auth.effects';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
+import { CoreModule } from './modules/core/core.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AngularFireModule } from 'angularfire2';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
+    CoreModule,
     AngularFireModule.initializeApp(environment.firebase, 'firebase-auth'),
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
