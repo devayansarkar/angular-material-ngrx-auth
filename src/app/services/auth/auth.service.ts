@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { from } from 'rxjs';
+import { ThrowStmt } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private userAuthState: Observable<firebase.User>;
-
+  private _userAuthState: Observable<firebase.User>;
   constructor(private _firebaseAuth: AngularFireAuth) {
-    this.userAuthState = _firebaseAuth.authState
+    this._userAuthState = _firebaseAuth.authState
   }
 
   loginUsingEmailAndPassword(email, password) {
@@ -27,7 +27,7 @@ export class AuthenticationService {
   }
 
   getUserAuth() {
-    return this.userAuthState
+    return this._userAuthState
   }
 
   logout() {
