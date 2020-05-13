@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { Store, select } from '@ngrx/store';
 import ILoggedInUser from '../models/auth/ILoggedInUser';
 import { HttpInterceptor, HttpRequest, HttpEvent, HttpHandler } from '@angular/common/http';
@@ -15,7 +15,7 @@ export class AppHttpClientHttpInterceptor implements HttpInterceptor {
             this.authenticatedUser = item
         })
     }
-    
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (this.authenticatedUser.isLoggedIn) {
             request = request.clone({
