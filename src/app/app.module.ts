@@ -9,6 +9,10 @@ import { environment } from '../environments/environment';
 import { PwaService } from './pwa/pwa.service';
 import { LoginModule } from './modules/login/login.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthenticationEffects } from './store/auth/auth.effects';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,12 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
+    AngularFireModule.initializeApp(environment.firebase, 'firebase-auth'),
+    AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([AuthenticationEffects])
+
   ],
   providers: [PwaService],
   bootstrap: [AppComponent]
