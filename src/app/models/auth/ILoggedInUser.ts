@@ -1,7 +1,7 @@
 import { ILoginError } from './ILoginError';
 
 export default interface ILoggedInUser {
-    isLoggedIn: false,
+    isLoggedIn: boolean,
     email?: string,
     profilePicture?: string,
     displayName?: string,
