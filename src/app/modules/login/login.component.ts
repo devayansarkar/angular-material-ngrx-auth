@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   private isFailedLoginAttempt(user: ILoggedInUser) {
-    return !user &&
+    return !user.isLoggedIn &&
       user.error &&
       user.error.code &&
       user.error.message;
