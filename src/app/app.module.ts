@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PwaService } from './pwa/pwa.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [PwaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
