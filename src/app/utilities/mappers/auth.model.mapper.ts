@@ -8,3 +8,12 @@ export function mapToLoggedInUser(authenticationResponse): ILoggedInUser {
         token: authenticationResponse.user.xa
     };
 }
+
+export function mapSessionToUser(authenticationResponse): ILoggedInUser {
+    return {
+        email: authenticationResponse.email,
+        isLoggedIn: true,
+        uuid: authenticationResponse.uid,
+        token: authenticationResponse.xa
+    };
+}
