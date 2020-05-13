@@ -6,8 +6,8 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class PwaService {
 
-  constructor(private swUpdate: SwUpdate) {
-    this.swUpdate.available.subscribe(event => {
+  constructor(private _swUpdate: SwUpdate) {
+    this._swUpdate.available.subscribe(event => {
       if (confirm("Do want to update the app ?")) {
         window.location.reload();
       }
