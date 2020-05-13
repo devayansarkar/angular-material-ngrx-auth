@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Store, select } from '@ngrx/store';
 import ILoggedInUser from '../models/auth/ILoggedInUser';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class AppHttpClient {
+   
     authenticatedUser: ILoggedInUser = { isLoggedIn: false }
 
-    constructor(private http: Http, private store: Store<{ authenticatedUser: ILoggedInUser }>) {
-        this.store.pipe(select('authenticatedUser')).subscribe((item) => {
+    constructor(private _http: Http, private _store: Store<{ authenticatedUser: ILoggedInUser }>) {
+        this._store.pipe(select('authenticatedUser')).subscribe((item) => {
             this.authenticatedUser = item
         })
     }
@@ -23,7 +23,7 @@ export class AppHttpClient {
     get(url) {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
-        return this.http.get(url, {
+        return this._http.get(url, {
             headers: headers
         });
     }
@@ -31,14 +31,15 @@ export class AppHttpClient {
     post(url, data) {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
-        return this.http.post(url, data, {
+        return this._http.post(url, data, {
             headers: headers
         });
     }
+
     put(url, data) {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
-        return this.http.put(url, data, {
+        return this._http.put(url, data, {
             headers: headers
         });
     }
