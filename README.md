@@ -5,12 +5,12 @@ Project created with `Angular CLI`
 > Add Firebase api keys and credentials from firebase console to use Firebase auth
 
 
-##Features
-    - Authentication with `Firebase`
-    - `HttpInterceptors` to pass tokens to backend for validation
-    - `ErrorInterceptors` to logout erroneous users
-    - `MaterialUI` or design coomponents
-    - `proxy.config.json` to proxy to local server during developement.
+## Features
+- Authentication with `Firebase`
+- `HttpInterceptors` to pass tokens to backend for validation
+- `ErrorInterceptors` to logout erroneous users
+- `MaterialUI` or design coomponents
+- `proxy.config.json` to proxy to local server during developement.
 
 > To user `proxy.config.json` add the following in `angular.json` under in `serve`
 ```json
