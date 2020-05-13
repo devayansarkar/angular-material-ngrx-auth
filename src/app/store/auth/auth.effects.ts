@@ -17,6 +17,7 @@ import {
     loginSessionValiditySuccessEvent,
     loginSessionValidityFailureEvent
 } from './auth.actions';
+import { mapToLoggedInUser, mapSessionToUser } from '../../utilities/mappers/auth.model.mapper';
 
 @Injectable()
 export class AuthenticationEffects {
@@ -29,7 +30,7 @@ export class AuthenticationEffects {
     setInitialAuthState$ = createEffect(() => this._actions$.pipe(
         ofType(appBootEvent),
         mergeMap(() => this._authenticationService.getUserAuth().pipe(
-            map((authenticationResponse) => appBootEventSessionAvailable({ userAuth: { email: authenticationResponse.email } })),
+            map((authenticationResponse) => appBootEventSessionAvailable({ authenticatedUser: mapSessionToUser(authenticationResponse) })),
             catchError(() => of(appBootEventSessionUnavailable()))))
     ))
 
@@ -43,7 +44,7 @@ export class AuthenticationEffects {
     loginUsingEmailAndPassword$ = createEffect(() => this._actions$.pipe(
         ofType(loginEvent),
         exhaustMap(payload => this._authenticationService.loginUsingEmailAndPassword(payload.loginEventRequest.email, payload.loginEventRequest.password).pipe(
-            map((authenticationResponse) => loginSuccessEvent({ authenticatedUser: { email: authenticationResponse.user.email } })),
+            map((authenticationResponse) => loginSuccessEvent({ authenticatedUser: mapToLoggedInUser(authenticationResponse) })),
             catchError((err) => of(loginFailureEvent({ err: err }))))))
     )
 
