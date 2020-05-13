@@ -5,7 +5,7 @@ import ILoggedInUser from '../models/auth/ILoggedInUser';
 
 @Injectable()
 export class AppHttpClient {
-   
+
     authenticatedUser: ILoggedInUser = { isLoggedIn: false }
 
     constructor(private _http: Http, private _store: Store<{ authenticatedUser: ILoggedInUser }>) {
@@ -17,6 +17,7 @@ export class AppHttpClient {
     createAuthorizationHeader(headers: Headers) {
         if (this.authenticatedUser.isLoggedIn) {
             headers.append('Bearer', `Authorization ${this.authenticatedUser.token}`);
+            headers.append('uuid', this.authenticatedUser.uuid);
         }
     }
 
