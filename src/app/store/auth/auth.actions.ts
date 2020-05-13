@@ -33,5 +33,5 @@ export const logoutSuccessEvent = createAction(LOGOUT_EVENT_SUCCESS);
 export const logoutFailureEvent = createAction(LOGOUT_EVENT_FAILURE);
 
 export const appBootEvent = createAction(APP_BOOT_EVENT)
-export const appBootEventSessionAvailable = createAction(APP_BOOT_EVENT_SESSION_AVAILABLE, props<{ userAuth: any }>())
+export const appBootEventSessionAvailable = createAction(APP_BOOT_EVENT_SESSION_AVAILABLE, props<{ authenticatedUser: any }>())
 export const appBootEventSessionUnavailable = createAction(APP_BOOT_EVENT_SESSION_UNAVAILABLE)
