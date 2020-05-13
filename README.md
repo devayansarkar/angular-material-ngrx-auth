@@ -31,6 +31,7 @@ Project created with `Angular CLI`
 ## Folder structure
 ```bash
 .
+├── LICENSE
 ├── README.md
 ├── angular.json
 ├── browserslist
