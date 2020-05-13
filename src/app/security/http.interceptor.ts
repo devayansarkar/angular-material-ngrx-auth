@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Store, select } from '@ngrx/store';
 import ILoggedInUser from '../models/auth/ILoggedInUser';
 import { HttpInterceptor, HttpRequest, HttpEvent, HttpHandler } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class AppHttpClientHttpInterceptor implements HttpInterceptor {
+export class AppClientHttpInterceptor implements HttpInterceptor {
 
     authenticatedUser: ILoggedInUser = { isLoggedIn: false }
 
-    constructor(private _http: Http, private _store: Store<{ authenticatedUser: ILoggedInUser }>) {
+    constructor(private _store: Store<{ authenticatedUser: ILoggedInUser }>) {
         this._store.pipe(select('authenticatedUser')).subscribe((item) => {
             this.authenticatedUser = item
         })
