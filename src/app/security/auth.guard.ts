@@ -12,14 +12,14 @@ export class AuthGuardService implements CanActivate {
         })
     }
     canActivate(): boolean {
-        if (this.isUnAunthenticatedUser()) {
+        if (this.isUnAuthenticatedUser()) {
             this._router.navigate(['login']);
             return false;
         }
         return true;
     }
 
-    private isUnAunthenticatedUser() {
+    private isUnAuthenticatedUser() {
         return !this.authenticatedUser.isLoggedIn;
     }
 }
