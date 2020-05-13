@@ -44,6 +44,7 @@ Project created with `Angular CLI`
 ├── ngsw-config.json
 ├── package-lock.json
 ├── package.json
+├── proxy.config.json
 ├── src
 │   ├── app
 │   │   ├── app-routing.module.ts
@@ -63,6 +64,11 @@ Project created with `Angular CLI`
 │   │   │   │   ├── account.component.html
 │   │   │   │   ├── account.component.ts
 │   │   │   │   └── account.module.ts
+│   │   │   ├── core
+│   │   │   │   ├── auth.guard.ts
+│   │   │   │   ├── core.module.ts
+│   │   │   │   ├── error.interceptor.ts
+│   │   │   │   └── http.interceptor.ts
 │   │   │   ├── home
 │   │   │   │   ├── home.component.css
 │   │   │   │   ├── home.component.html
@@ -77,10 +83,6 @@ Project created with `Angular CLI`
 │   │   │       └── shared.module.ts
 │   │   ├── pwa
 │   │   │   └── pwa.service.ts
-│   │   ├── security
-│   │   │   ├── auth.guard.ts
-│   │   │   ├── error.interceptor.ts
-│   │   │   └── http.interceptor.ts
 │   │   ├── services
 │   │   │   └── auth
 │   │   │       └── auth.service.ts
