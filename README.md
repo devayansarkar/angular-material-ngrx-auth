@@ -1,4 +1,4 @@
-# Angular Material boiler plate with Ngrx and FirebaseAuth
+# Angular Material boiler plate with Ngrx and Firebase Authentication
 
 Project created with `Angular CLI`
 
