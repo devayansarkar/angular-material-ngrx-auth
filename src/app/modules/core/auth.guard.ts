@@ -2,26 +2,27 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import ILoggedInUser from '../../models/auth/ILoggedInUser';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-    authenticatedUser: ILoggedInUser = { isLoggedIn: false }
-    constructor(private _router: Router, private store: Store<{ authenticatedUser: ILoggedInUser }>) {
-        this.store.pipe(select('authenticatedUser')).subscribe((item) => {
-            console.log(item)
-            this.authenticatedUser = item
-        })
-    }
-    canActivate(): boolean {
-        if (this.isUnAuthenticatedUser()) {
-            this._router.navigate(['login']);
-            return false;
-        }
-        return true;
+
+    constructor(private _router: Router, private _store: Store<{ authenticatedUser: ILoggedInUser }>) {
     }
 
-    private isUnAuthenticatedUser() {
-        console.log(this.authenticatedUser)
-        return !this.authenticatedUser.isLoggedIn;
+    canActivate(): Observable<boolean> {
+        return this._store.pipe(select('authenticatedUser')).pipe(map((user: ILoggedInUser) => {
+            if (user.isLoggedIn && user.email) {
+                return true
+            }
+            else {
+                this._router.navigate(['/login']);
+                return false
+            }
+        }), catchError(() => {
+            this._router.navigate(['/login']);
+            return of(false);
+        }))
     }
 }
