@@ -1,0 +1,20 @@
+.login-card {
+    max-width: 600px;
+    width: 100%;
+}
+
+.login-button {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 25px;
+}
+
+.username-password {
+    background: #001a33;
+    color: white;
+}
+
+.google {
+    background: #DB4437;
+    color: white;
+}

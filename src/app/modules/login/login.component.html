@@ -1,0 +1,44 @@
+<mat-grid-list cols="1" rowHeight="500px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-card class="login-card" [class.mat-elevation-z0]=true>
+            <mat-card-content>
+                <mat-grid-list cols="1" rowHeight="200px">
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <img width="200" src="assets/icons/icon-512x512.png">
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="1" rowHeight="75px">
+                    <form [formGroup]="loginFormGroup" (ngSubmit)="login(loginFormGroup.value)">
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Enter your email</mat-label>
+                                <input matInput formControlName="email" type="email">
+                                <button mat-icon-button matSuffix>
+                                    <mat-icon>alternate_email</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                            <mat-checkbox [checked]="true" (change)="handleChangeInSessionsValidity($event)">Remember me!
+                            </mat-checkbox>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                            <button mat-raised-button [disabled]="!loginFormGroup.valid"
+                                class="login-button username-password">Sign-in</button>
+                        </mat-grid-tile>
+                    </form>
+                </mat-grid-list>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
