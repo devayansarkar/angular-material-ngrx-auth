@@ -82,11 +82,11 @@ Project created with `Angular CLI`
 │   │   │   │   └── login.module.ts
 │   │   │   └── shared
 │   │   │       └── shared.module.ts
-│   │   ├── pwa
-│   │   │   └── pwa.service.ts
 │   │   ├── services
-│   │   │   └── auth
-│   │   │       └── auth.service.ts
+│   │   │   ├── auth
+│   │   │   │   └── auth.service.ts
+│   │   │   └── pwa
+│   │   │       └── pwa.service.ts
 │   │   ├── store
 │   │   │   ├── auth
 │   │   │   │   ├── auth.actions.ts
