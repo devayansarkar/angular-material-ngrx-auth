@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { PwaService } from './pwa/pwa.service';
 import { LoginModule } from './modules/login/login.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -14,6 +13,7 @@ import { AuthenticationEffects } from './store/auth/auth.effects';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { CoreModule } from './modules/core/core.module';
+import { PwaService } from './services/pwa/pwa.service';
 
 @NgModule({
   declarations: [
