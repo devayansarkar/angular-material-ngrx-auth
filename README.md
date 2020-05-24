@@ -9,7 +9,7 @@ Project created with `Angular CLI`
 - Authentication with `Firebase`
 - `HttpInterceptors` to pass tokens to backend for validation
 - `ErrorInterceptors` to logout erroneous users
-- `MaterialUI` or design coomponents
+- `MaterialUI` or design components
 - `proxy.config.json` to proxy to local server during developement.
 
 > To user `proxy.config.json` add the following in `angular.json` under in `serve`
