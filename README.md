@@ -12,7 +12,7 @@ Project created with `Angular CLI`
 - `MaterialUI` or design components
 - `proxy.config.json` to proxy to local server during developement.
 
-> To user `proxy.config.json` add the following in `angular.json` under in `serve`
+> To use `proxy.config.json` add the following in `angular.json` under in `serve`
 ```json
  {
     "builder": "@angular-devkit/build-angular:dev-server",
