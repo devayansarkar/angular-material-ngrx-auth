@@ -17,12 +17,12 @@ Project created with `Angular CLI`
  {
     "builder": "@angular-devkit/build-angular:dev-server",
     "options": {
-        "browserTarget": "laundry-expert:build",
+        "browserTarget": "angular-material-ngrx-auth:build",
         "proxyConfig": "proxy.config.json"
         },
         "configurations": {
         "production": {
-            "browserTarget": "laundry-expert:build:production"
+            "browserTarget": "angular-material-ngrx-auth:build:production"
         }
     }
 }
